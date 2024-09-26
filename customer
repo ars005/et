@@ -1,0 +1,12 @@
+db.customers.find({})
+
+
+db.customers.find({},{ first_name: 1, email: 1, _id: 0 })
+
+
+db.customers.find({},{ name: 1, loan_details: 1, _id: 0 })
+
+db.customers.find({},{ name: 1, loan_details: 1, _id: 0 })
+
+
+db.customers.find({ address: "Matunga" },{ name: 1, _id: 0 })

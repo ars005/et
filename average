@@ -1,0 +1,24 @@
+db.transactions.aggregate([{$group: {_id: "$item",sum:{$sum:"$amount"}}}])
+
+
+
+db.transactions.aggregate([{$group:{_id:"$item",AddToSet:{$addToSet:"$price"}}}])
+
+
+db.transactions.aggregate([{$group:{_id:"$item",Push:{$push:"$price"}}}])
+
+
+db.transactions.aggregate([{$group:{_id:"$item",Date:{$first:"$date"}}}])
+
+
+db.transactions.aggregate([{$group:{_id:"$item",date:{$last:"$date"}}}])
+
+
+
+
+
+
+
+
+
+

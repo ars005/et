@@ -1,0 +1,38 @@
+db.customers.aggregate([
+  {
+    $project: {
+      "name": "$Cust_name.Fn",  
+      "totalLoanAmount": { $sum: "$Loan_details.Amount" }  
+    }
+  }
+])
+
+
+db.customers.updateMany(
+  {},
+  { $rename: { "Loan_details": "Loan_taken" } }
+)
+
+
+
+db.customers.updateOne(
+  { "Cust_name.Fn": "Reena" },
+  { $set: { "Acc_balance": 75000 } }
+)
+
+
+db.customers.find(
+  { 
+    "Address": "Sion", 
+    "Acc_balance": { $gt: 200000 } 
+  },
+  { 
+    "Cust_name.Fn": 1, 
+    "Cust_name.Ln": 1, 
+    _id: 0 
+  }
+)
+
+
+
+

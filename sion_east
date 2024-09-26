@@ -1,0 +1,11 @@
+db.customers.updateMany({},{ $set: { branch_name: "Sion_East" } })
+
+
+db.customers.updateOne({ name: "Ajay" },{ $push: { loans: { loan_id: "L1C4", amount: 40000, emi: 200 } } })
+
+
+db.customers.find({},{ name: 1, account_balance: 1, _id: 0 }).sort({ account_balance: 1 })
+
+
+db.customers.find().limit(2).pretty()
+
